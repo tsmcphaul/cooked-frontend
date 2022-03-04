@@ -4,10 +4,10 @@ class Navbar extends Component {
     render() {
         return (
             <nav className="navbar">
-                <h4>Home</h4>
-                <h4>Recipes</h4>
-                <h4>Categories</h4>
-                <h4>Create Recipe</h4>
+                <h4 className='home'>Home</h4>
+                <h4 className='recipes-nav'>Recipes</h4>
+                <h4 className='category-nav'>Categories</h4>
+                <h4 className='new-nav'>Create Recipe</h4>
             </nav>
         );
     }
