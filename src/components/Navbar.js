@@ -6,10 +6,10 @@ class Navbar extends Component {
     render() {
         return (
             <nav className="navbar">
-                <Link to="/" className='home'>Home</Link>
+                <Link to="/" className='home-nav'>Home</Link>
                 <Link to="/recipes" className='recipes-nav'>Recipes</Link>
                 <Link to="/categories" className='category-nav'>Categories</Link>
-                <Link to="/new" className='new-nav'>Create Recipe</Link>
+                <Link to="/new" className='form-nav'>Create Recipe</Link>
             </nav>
         );
     }

@@ -5,7 +5,7 @@ import CategoryContainer from './components/categories/CategoryContainer';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import RecipeContainer from './components/recipes/RecipeContainer';
-import RecipeNew from './components/recipes/RecipeNew';
+import RecipeForm from './components/recipes/RecipeForm';
 
 class App extends Component {
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/recipes" component={RecipeContainer} />
         <Route exact path="/categories" component={CategoryContainer} />
-        <Route exact path="/new" component={RecipeNew} />
+        <Route exact path="/new" component={RecipeForm} />
 
       </Router>
     );
