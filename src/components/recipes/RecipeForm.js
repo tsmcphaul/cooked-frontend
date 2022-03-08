@@ -33,10 +33,20 @@ class RecipeForm extends Component {
                 <h2>
                    Add New Recipe
                 </h2>
-                <input type="text"
-                placeholder="Name"
-                value={this.state.name}
-                onChange={this.handleChange} />
+                <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange} />
+                <br/>
+                {/* <select name="category" placeholder="Category" multiple={true} value={this.state.Category.all} onChange={this.handleChange} /> */}
+                <br/>
+                <textarea type="text" rows="4" cols="50" placeholder="Ingredients" value={this.state.ingredients} onChange={this.handleChange} />
+                <br/>
+                <input type="text" placeholder="Instructions" value={this.state.instructions} onChange={this.handleChange} />
+                <br/>
+                <input type="text" placeholder="Image" value={this.state.image} onChange={this.handleChange} />
+                <br/>
+                <input type="text" placeholder="Preptime" value={this.state.preptime} onChange={this.handleChange} />
+                <br/>
+                <input type="text" placeholder="Cooktime" value={this.state.cooktime} onChange={this.handleChange} />
+                <br/>
                 <input type="submit" />
             </form>
         );
