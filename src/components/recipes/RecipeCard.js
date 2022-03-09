@@ -4,7 +4,7 @@ import RecipeContent from './RecipeContent';
 class RecipeCard extends Component {
     render() {
         return (
-            <div>
+            <div className='recipe-card'>
                 <RecipeContent />
             </div>
         );

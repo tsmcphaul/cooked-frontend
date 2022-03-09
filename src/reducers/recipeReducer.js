@@ -1,4 +1,4 @@
-export default function recipeReducer (state, action) {
+export function recipeReducer (state, action) {
     
     switch (action.type) {
         case "FETCH_RECIPES":
@@ -6,7 +6,7 @@ export default function recipeReducer (state, action) {
                 ...state, recipes: action.payload
             }
             
-            break;
+           
     
         default:
             break;
