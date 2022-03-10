@@ -1,34 +1,28 @@
 import React, { Component } from 'react';
-import RecipeCard from './RecipeCard';
-// import { connect } from 'react-redux'
+// import RecipeCard from './RecipeCard';
+import RecipeList from './RecipeList';
+
+import { connect } from 'react-redux'
 // import RecipeCard from './RecipeCard'
-// import { fetchRecipes } from '../../actions/recipeActions.js'
+import { fetchRecipes } from '../../actions/recipeActions.js'
 
 
 class RecipeContainer extends Component {
 
-    // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         recipes: []
-    //     }
-    // }
 
-
-// componentDidMount() {
-//     this.props.fetchRecipes()
-//  }
+componentDidMount() {
+    this.props.fetchRecipes()
+ }
 
 
     render() {
         return (
             <div>
-               <ul>
-                  <RecipeCard />
-               </ul>
+                <RecipeList />
+
             </div>
         );
     }
 }
 
-export default RecipeContainer;
+export default connect(null, { fetchRecipes })(RecipeContainer);
