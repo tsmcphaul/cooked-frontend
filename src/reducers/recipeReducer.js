@@ -1,4 +1,4 @@
-export function recipeReducer (state = {recipes: []}, action) {
+export function recipeReducer (state = [], action) {
     
     switch (action.type) {
         case "FETCH_RECIPES":

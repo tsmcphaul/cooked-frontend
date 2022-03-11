@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import RecipeCard from './RecipeCard'
-// import { fetchRecipes } from '../../actions/recipeActions.js'
+import { fetchRecipes } from '../../actions/recipeActions.js'
 // import { useEffect} from 'react'
 // import { useSelector, useDispatch } from 'react-redux';
 // import { useState } from 'react';
@@ -18,7 +18,7 @@ import RecipeCard from './RecipeCard'
     // }
 
     // componentDidMount() {
-    //     this.fetchRecipes()
+    //     this.props.fetchRecipes()
 
     // }
 
@@ -34,22 +34,22 @@ import RecipeCard from './RecipeCard'
             <div className='recipe-list'>
                 {this.props.recipes.map(r => <RecipeCard key={r.id} name={r.name}/>)}
         
-                {/* {console.log(this.props.recipes)} */}
+                {console.log(this.props.recipes)}
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
-    console.log(state)
+    // console.log(state)
     return {recipes: state.recipes}
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {fetchRecipes: () => dispatch(fetchRecipes())
-//     }
-// }
+const mapDispatchToProps = (dispatch) => {
+    return {fetchRecipes: () => dispatch(fetchRecipes())
+    }
+}
 
 
 
-export default connect(mapStateToProps)(RecipeContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeContainer);
