@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { connect} from 'react-redux'
+import { connect} from 'react-redux'
 import RecipeCard from './RecipeCard';
 
 class RecipeList extends Component {
@@ -11,24 +11,35 @@ class RecipeList extends Component {
         }
     }
 
-    // componentDidMount() {
-    //     this.setState({
-    //         recipes: this.props.recipes
-    //     })
-    // }
+    componentDidMount() {
+      this.props.fetchRecipes()
+    }
 
 
     render() {
+       
+        
         return (
             <div className='recipe-list'>
-    
-                 <RecipeCard />
+                {this.props.recipes.map(r => (
+                    <RecipeCard key={r.id} recipe={r}/>
+
+                ))}
 
             </div>
         );
     }
 
-    
 }
 
-export default RecipeList;
+const mapStateToProps = state => {
+    return {recipes: state.recipeReducer}
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {fetchRecipes: () => dispatch(fetchRecipes())
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeList);

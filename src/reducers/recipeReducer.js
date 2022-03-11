@@ -1,4 +1,4 @@
-export function recipeReducer (state, action) {
+export function recipeReducer (state = {recipes: []}, action) {
     
     switch (action.type) {
         case "FETCH_RECIPES":
@@ -9,7 +9,7 @@ export function recipeReducer (state, action) {
            
     
         default:
-            break;
+            return state;
     }
-    return state;
+  
 }

@@ -3,6 +3,6 @@ import {categoryReducer} from './categoryReducer'
 import { combineReducers } from 'redux'
 
 export const rootReducer = combineReducers({
-    recipe: recipeReducer,
-    category: categoryReducer
+    recipes: recipeReducer,
+    categories: categoryReducer
 })
