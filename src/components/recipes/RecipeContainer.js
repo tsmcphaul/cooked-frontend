@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import RecipeCard from './RecipeCard'
+// import RecipeCard from './RecipeCard'
 import { fetchRecipes } from '../../actions/recipeActions.js'
+import RecipeList from './RecipeList';
 // import { useEffect} from 'react'
 // import { useSelector, useDispatch } from 'react-redux';
 // import { useState } from 'react';
@@ -17,10 +18,10 @@ import { fetchRecipes } from '../../actions/recipeActions.js'
     //     }
     // }
 
-    // componentDidMount() {
-    //     this.props.fetchRecipes()
+    componentDidMount() {
+        this.props.fetchRecipes()
 
-    // }
+    }
 
     // const dispatch = useDispatch()
     // const recipes = useSelector(state => state.recipes)
@@ -32,7 +33,17 @@ import { fetchRecipes } from '../../actions/recipeActions.js'
      render() {
         return (
             <div className='recipe-list'>
-                {this.props.recipes.map(r => <RecipeCard key={r.id} name={r.name}/>)}
+                
+                {this.props.recipes.map(r => <RecipeList
+                key={r.id} 
+                image={r.attributes.image}
+                name={r.attributes.name} 
+                category={r.attributes.category_id}
+                ingredients={r.attributes.ingredients}
+                preptime={r.attributes.preptime}
+                cooktime={r.attributes.cooktime}
+                instructions={r.attributes.instructions}
+                />)}
         
                 {console.log(this.props.recipes)}
             </div>
@@ -45,11 +56,11 @@ const mapStateToProps = state => {
     return {recipes: state.recipes}
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {fetchRecipes: () => dispatch(fetchRecipes())
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {fetchRecipes: () => dispatch(fetchRecipes())
+//     }
+// }
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeContainer);
+export default connect(mapStateToProps, { fetchRecipes })(RecipeContainer);
