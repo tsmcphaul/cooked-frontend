@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-// import RecipeCard from './RecipeCard'
 import { fetchRecipes } from '../../actions/recipeActions.js'
 import RecipeList from './RecipeList';
-// import { useEffect} from 'react'
-// import { useSelector, useDispatch } from 'react-redux';
-// import { useState } from 'react';
+
 
 
 
  class RecipeContainer extends Component {
 
-    // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         recipes: []
-    //     }
-    // }
 
     componentDidMount() {
         this.props.fetchRecipes()

@@ -15,12 +15,16 @@ class RecipeForm extends Component {
 
         }
     }
-
+    
+    
+    
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         });
+   
     }
+
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -32,10 +36,11 @@ class RecipeForm extends Component {
             <form onSubmit={this.handleSubmit}>
                 <h2>
                    Add New Recipe
+                   {console.log(this.state)}
                 </h2>
                 <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange} />
                 <br/>
-                {/* <select name="category" placeholder="Category" multiple={true} value={this.state.Category.all} onChange={this.handleChange} /> */}
+                <select name="category" placeholder="Category" multiple={true} value={this.state.categories} onChange={this.handleChange} />
                 <br/>
                 <textarea type="text" rows="4" cols="50" placeholder="Ingredients" value={this.state.ingredients} onChange={this.handleChange} />
                 <br/>

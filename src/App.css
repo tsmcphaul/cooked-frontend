@@ -66,7 +66,21 @@
 
 }
 
+.category-list{
+  width: 175px;
+  font-size: 12px;
+  /* display: flexbox; */
+  display:grid;
+
+}
+
 .recipe-img{
+  width: 100%;
+  border-radius: 9px;
+
+}
+
+.category-img{
   width: 100%;
   border-radius: 9px;
 
