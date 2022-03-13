@@ -6,10 +6,12 @@ import RecipeList from './RecipeList';
 
 
 
+
  class RecipeContainer extends Component {
 
 
     componentDidMount() {
+        
         this.props.fetchRecipes()
 
     }
@@ -20,6 +22,7 @@ import RecipeList from './RecipeList';
 
                 {this.props.recipes.map(r => <RecipeList
                 key={r.id} 
+                id={r.id}
                 image={r.attributes.image}
                 name={r.attributes.name} 
                 category={r.attributes.category_id}
@@ -27,8 +30,10 @@ import RecipeList from './RecipeList';
                 preptime={r.attributes.preptime}
                 cooktime={r.attributes.cooktime}
                 instructions={r.attributes.instructions}
-                />)}
-        
+                />
+                
+                )}
+               
                 {console.log(this.props.recipes)}
             </div>
         );

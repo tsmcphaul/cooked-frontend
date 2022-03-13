@@ -1,21 +1,23 @@
 // import React, { Component } from 'react';
 
 
-const RecipeCard = props => {
+const recipeCard = props  => {
     
         return (
-            <div className='recipe-card'>
-                <img src={props.image} alt='img' className='recipe-img'/>
-                <h4 className='recipe-name'> {props.name} </h4>
-                <h4 className='recipe-category'>Category: {props.category_id}</h4>
-                <h4 className='recipe-ingredients'>Ingredients: {props.ingredients}</h4>
-                <h4 className='recipe-preptime'>Prep time: {props.preptime} mins</h4>
-                <h4 className='recipe-cooktime'>Cook time: {props.cooktime} mins</h4>
-                <h4 className='recipe-instuctions'>Instructions: {props.instructions}</h4>
+            
+            <div className='props-card'>
+                {console.log(props)}
+                <img src={props.recipe.image} alt='img' className='props-img'/>
+                <h4 className='props-name'> {props.name} </h4>
+                <h4 className='props-category'>{props.recipe.name}</h4>
+                <h4 className='props-ingredients'>Ingredients: {props.recipe.ingredients}</h4>
+                <h4 className='props-preptime'>Prep time: {props.recipe.preptime} mins</h4>
+                <h4 className='props-cooktime'>Cook time: {props.recipe.cooktime} mins</h4>
+                <h4 className='props-instuctions'>Instructions: {props.recipe.instructions}</h4>
                 
             </div>
         );
     
 }
 
-export default RecipeCard;
+export default recipeCard;

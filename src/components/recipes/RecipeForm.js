@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { fetchCategories } from '../../actions/categoryActions'
 import { connect } from 'react-redux'
 import { addRecipe } from '../../actions/recipeActions';
+import RecipeContainer from './RecipeContainer';
+
 
 class RecipeForm extends Component {
 
@@ -14,9 +16,8 @@ class RecipeForm extends Component {
             instructions: "", 
             image: "",
             preptime: "", 
-            cooktime: ""
-
-
+            cooktime: "",
+            isSubmitted: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,11 +40,25 @@ class RecipeForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.addRecipe(this.state)
+        this.setState = {
+            name: "",
+            category_id: "",
+            ingredients: "",
+            instructions: "", 
+            image: "",
+            preptime: "", 
+            cooktime: "",
+            isSubmitted: true
+        }
     }
 
 
     render() {
-        return (
+        
+        const isSubmitted = this.state.isSubmitted;
+        let content 
+        if(!isSubmitted) {
+            content = (
             <form onSubmit={this.handleSubmit}>
                 
                 <h2>
@@ -69,9 +84,13 @@ class RecipeForm extends Component {
                 <input type="submit" />
                 {console.log(this.state)}
             </form>
-        );
+        )} else {
+            content = <RecipeContainer/>
+        }
+        return <div>{content}</div>;
     }
 }
+
 const mapStateToProps = state => {
 
     return {

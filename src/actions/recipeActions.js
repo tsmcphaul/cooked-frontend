@@ -8,6 +8,17 @@ export const fetchRecipes = () => {
     }
 }
 
+export const fetchRecipe = (id) => {
+    return (dispatch) => {
+        fetch(`http://localhost:3001/recipes/${id}`)
+        .then(resp => resp.json())
+        .then(data => {console.log(data)
+            dispatch({type: 'FETCH_RECIPE', payload: data})})
+            
+    }
+}
+
+
 export const addRecipe = (recipe) => {
     return (dispatch) => {
         fetch("http://localhost:3001/recipes", {

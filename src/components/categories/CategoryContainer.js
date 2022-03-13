@@ -20,6 +20,7 @@ class CategoryContainer extends Component {
                 <h2>Categories</h2>
                 {this.props.categories.map(c => <CategoryCard
                 key={c.id} 
+                id={c.id}
                 image={c.attributes.image}
                 name={c.attributes.name} 
                 />)}
