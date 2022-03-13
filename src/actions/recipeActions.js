@@ -41,7 +41,9 @@ export const deleteRecipe = (id) => {
             method: "DELETE"
         })
             
-            .then(recipe => 
-                dispatch({ type: "DELETE_RECIPE", payload: id}))
+            .then(data => {
+                dispatch({ type: "DELETE_RECIPE", payload: data.id})})
+                alert("Recipe has been deleted")
     }
+    
 }

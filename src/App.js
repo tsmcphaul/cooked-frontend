@@ -8,7 +8,6 @@ import RecipeContainer from './components/recipes/RecipeContainer';
 import RecipeForm from './components/recipes/RecipeForm';
 import { fetchRecipes } from './actions/recipeActions'
 import { connect } from 'react-redux';
-import CategoryCard from './components/categories/CategoryCard';
 import RecipeCard from './components/recipes/RecipeCard';
 import { fetchCategories } from './actions/categoryActions';
 

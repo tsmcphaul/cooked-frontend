@@ -1,5 +1,7 @@
 // import React, { Component } from 'react';
 
+import RecipeDeleteButton from "./RecipeDeleteButton";
+
 
 const recipeCard = props  => {
     
@@ -14,7 +16,8 @@ const recipeCard = props  => {
                 <h4 className='props-preptime'>Prep time: {props.recipe.preptime} mins</h4>
                 <h4 className='props-cooktime'>Cook time: {props.recipe.cooktime} mins</h4>
                 <h4 className='props-instuctions'>Instructions: {props.recipe.instructions}</h4>
-                
+                {console.log(props.id)}
+                <RecipeDeleteButton id={props.id}/>
             </div>
         );
     

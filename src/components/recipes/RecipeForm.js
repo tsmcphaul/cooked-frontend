@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { fetchCategories } from '../../actions/categoryActions'
 import { connect } from 'react-redux'
 import { addRecipe } from '../../actions/recipeActions';
-import RecipeContainer from './RecipeContainer';
+// import RecipeContainer from './RecipeContainer';
 
 
 class RecipeForm extends Component {
@@ -40,25 +40,18 @@ class RecipeForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.addRecipe(this.state)
-        this.setState = {
-            name: "",
-            category_id: "",
-            ingredients: "",
-            instructions: "", 
-            image: "",
-            preptime: "", 
-            cooktime: "",
-            isSubmitted: true
-        }
+        alert("YUMMY!!! Your recipe has been added!")
+        // this.setState({
+           
+        //     isSubmitted: true
+        // })
+       window.location.replace("http://localhost:3000/recipes")
     }
 
 
     render() {
-        
-        const isSubmitted = this.state.isSubmitted;
-        let content 
-        if(!isSubmitted) {
-            content = (
+   
+            return(
             <form onSubmit={this.handleSubmit}>
                 
                 <h2>
@@ -82,12 +75,13 @@ class RecipeForm extends Component {
                 <input name="cooktime"type="text" placeholder="Cook Time" value={this.state.cooktime} onChange={this.handleChange} />
                 <br/>
                 <input type="submit" />
+                {/* <button onClick={this.handleReset}>Reset</button> */}
                 {console.log(this.state)}
-            </form>
-        )} else {
-            content = <RecipeContainer/>
-        }
-        return <div>{content}</div>;
+            </form>)
+        // )} else {
+        //     content = <RecipeContainer props={this.props}/>
+        // }
+        // return <div>{content}</div>;
     }
 }
 
