@@ -34,3 +34,14 @@ export const addRecipe = (recipe) => {
                 dispatch({ type: "ADD_RECIPE", payload: recipe}))
     }
 }
+
+export const deleteRecipe = (id) => {
+    return (dispatch) => {
+        fetch(`http://localhost:3001/recipes/${id}`, {
+            method: "DELETE"
+        })
+            
+            .then(recipe => 
+                dispatch({ type: "DELETE_RECIPE", payload: id}))
+    }
+}
