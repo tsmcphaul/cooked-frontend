@@ -1,6 +1,7 @@
 // import React, { Component } from 'react';
 
 import RecipeDeleteButton from "./RecipeDeleteButton";
+import { Link } from "react-router-dom";
 
 
 const recipeCard = props  => {
@@ -18,6 +19,7 @@ const recipeCard = props  => {
                 <h4 className='props-instuctions'>Instructions: {props.recipe.instructions}</h4>
                 {console.log(props.id)}
                 <RecipeDeleteButton id={props.id}/>
+                <Link to={`/recipes/`}>Go back to recipes</Link>
             </div>
         );
     

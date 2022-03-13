@@ -19,6 +19,7 @@ class RecipeDeleteButton extends Component {
         return (
             <div>
                 <button onClick={deleteRecipe(this.props.id)}>Delete </button>
+                
             </div>
         );
     }
