@@ -14,17 +14,10 @@ import RecipeList from './RecipeList';
 
     }
 
-    // const dispatch = useDispatch()
-    // const recipes = useSelector(state => state.recipes)
-
-    // useEffect(() => {
-    //     dispatch(fetchRecipes())
-    //   }, [])
-
      render() {
         return (
             <div className='recipe-list'>
-                
+
                 {this.props.recipes.map(r => <RecipeList
                 key={r.id} 
                 image={r.attributes.image}

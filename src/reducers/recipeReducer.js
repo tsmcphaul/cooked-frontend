@@ -5,6 +5,8 @@ export function recipeReducer (state = [], action) {
         case "FETCH_RECIPES":
             console.log(state)
             return action.payload
+        case "ADD_RECIPE":
+            return [...state, action.payload]
             
            
     

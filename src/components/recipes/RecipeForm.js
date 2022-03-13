@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import CategorySelect from '../categories/CategorySelect';
 import { fetchCategories } from '../../actions/categoryActions'
 import { connect } from 'react-redux'
-import { fetchRecipes } from '../../actions/recipeActions.js'
+import { addRecipe } from '../../actions/recipeActions';
 
 class RecipeForm extends Component {
 
@@ -15,19 +14,16 @@ class RecipeForm extends Component {
             instructions: "", 
             image: "",
             preptime: "", 
-            cooktime: "",
-            selectedOption:""
+            cooktime: ""
 
 
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleCategoryChange = this.handleCategoryChange.bind(this)
     }
     
     componentDidMount() {
         this.props.fetchCategories();
-        this.props.fetchRecipes();
 
     }
     
@@ -39,34 +35,25 @@ class RecipeForm extends Component {
    
     }
 
-    handleCategoryChange = (e) => {
-       
-        this.setState({
-            [e.target.name]: e.target.value
-            
-        });
-   
-    }
-
 
     handleSubmit = (e) => {
         e.preventDefault();
+        this.props.addRecipe(this.state)
     }
 
 
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                {console.log(this.state)}
+                
                 <h2>
                    Add New Recipe
                  
                 </h2>
                 <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange} name="name"/>
                 <br/>
-                {/* <CategorySelect /> */}
-                <select> { this.props.categories.map(cat => 
-                    <option name="category_id" key={cat.id} value={cat.id} selected={cat.id} onChange={this.handleCategoryChange}>{cat.attributes.name} </option> )
+                <select name="category_id" onChange={this.handleChange}> { this.props.categories.map(cat => 
+                    <option name="category_id" key={cat.id} value={cat.id}>{cat.attributes.name} </option> )
                 }</select>
                 <br/>
                 <textarea name="ingredients"type="text" rows="4" cols="50" placeholder="Ingredients" value={this.state.ingredients} onChange={this.handleChange} />
@@ -80,24 +67,25 @@ class RecipeForm extends Component {
                 <input name="cooktime"type="text" placeholder="Cook Time" value={this.state.cooktime} onChange={this.handleChange} />
                 <br/>
                 <input type="submit" />
+                {console.log(this.state)}
             </form>
         );
     }
 }
 const mapStateToProps = state => {
-    // console.log(state)
+
     return {
-        categories: state.categories,
+        categories: state.categories, 
         recipes: state.recipes
+      
     }
 }
 
-// const mapDispatchToProps = state => {
-//     // console.log(state)
+// const mapDispatchToProps = dispatch => {
+
 //     return {
-//         categories: state.categories,
-//         recipes: state.recipes
+//         addRecipeDispatch: (recipe) => dispatch(addRecipe(recipe))
 //     }
 // }
 
-export default connect(mapStateToProps, {fetchCategories, fetchRecipes})(RecipeForm);
+export default connect(mapStateToProps, {fetchCategories, addRecipe})(RecipeForm);
