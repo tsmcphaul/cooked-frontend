@@ -4,7 +4,7 @@ Cooked is a single page application where users can create and share recipes!
 
 ## Installation
 
-- Clone the repository as well as the repoistory for the frontend (https://github.com/tsmcphaul/Cooked-api)
+- Clone the repository as well as the repoistory for the backend (https://github.com/tsmcphaul/Cooked-api)
 - Once cloned, make sure you're inside the backend directory and run 'bundle install' into the terminal
 - While in the backend directory, run 'rails db:migrate' and 'rails db:seed' 
 - Start up the Rails server with 'rails s'
