@@ -18,7 +18,7 @@ import RecipeList from './RecipeList';
 
      render() {
         return (
-            <div className='recipe-list'>
+            <div className='recipe-container'>
 
                 {this.props.recipes.map(r => <RecipeList
                 key={r.id} 
@@ -44,12 +44,5 @@ const mapStateToProps = state => {
     // console.log(state)
     return {recipes: state.recipes}
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {fetchRecipes: () => dispatch(fetchRecipes())
-//     }
-// }
-
-
 
 export default connect(mapStateToProps, { fetchRecipes })(RecipeContainer);

@@ -32,7 +32,6 @@ class CategoryContainer extends Component {
 }
 
 const mapStateToProps = state => {
-    // console.log(state)
     return {categories: state.categories}
 }
 

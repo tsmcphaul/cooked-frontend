@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { fetchCategories } from '../../actions/categoryActions'
 import { connect } from 'react-redux'
 import { addRecipe } from '../../actions/recipeActions';
-// import RecipeContainer from './RecipeContainer';
 
 
 class RecipeForm extends Component {
@@ -41,10 +40,7 @@ class RecipeForm extends Component {
         e.preventDefault();
         this.props.addRecipe(this.state)
         alert("YUMMY!!! Your recipe has been added!")
-        // this.setState({
-           
-        //     isSubmitted: true
-        // })
+   
        window.location.replace("http://localhost:3000/recipes")
     }
 
@@ -75,13 +71,10 @@ class RecipeForm extends Component {
                 <input name="cooktime"type="text" placeholder="Cook Time" value={this.state.cooktime} onChange={this.handleChange} />
                 <br/>
                 <input type="submit" />
-                {/* <button onClick={this.handleReset}>Reset</button> */}
+
                 {console.log(this.state)}
             </form>)
-        // )} else {
-        //     content = <RecipeContainer props={this.props}/>
-        // }
-        // return <div>{content}</div>;
+
     }
 }
 
@@ -94,11 +87,5 @@ const mapStateToProps = state => {
     }
 }
 
-// const mapDispatchToProps = dispatch => {
-
-//     return {
-//         addRecipeDispatch: (recipe) => dispatch(addRecipe(recipe))
-//     }
-// }
 
 export default connect(mapStateToProps, {fetchCategories, addRecipe})(RecipeForm);

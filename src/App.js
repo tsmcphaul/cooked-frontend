@@ -17,7 +17,6 @@ import { fetchCategories } from './actions/categoryActions';
 class App extends Component {
 
   componentDidMount() {
-    // console.log(this.state.recipes)
     this.props.getRecipes()
     this.props.getCategories()
 

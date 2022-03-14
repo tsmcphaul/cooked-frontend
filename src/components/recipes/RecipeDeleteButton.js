@@ -18,7 +18,7 @@ class RecipeDeleteButton extends Component {
     render() {
         return (
             <div>
-                <button onClick={deleteRecipe(this.props.id)}>Delete </button>
+                <button className={"delete-button"} onClick={deleteRecipe(this.props.id)}>Delete </button>
                 
             </div>
         );
